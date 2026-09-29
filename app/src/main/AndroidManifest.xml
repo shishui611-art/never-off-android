@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      保持屏幕常亮所需。
+      说明：实测本机 ColorOS / Android 16 会拦截第三方应用改写 SCREEN_OFF_TIMEOUT
+      （putInt 返回 true 但值不变），所以常亮改用 WakeLock 实现，不再依赖改写息屏时间。
+      个别 ROM 也可能忽略屏幕级 WakeLock，需真机验证。
+
+      但「保持亮度」仍然需要本权限：亮度类设置的写入必须显式声明该权限，
+      未声明时会直接抛 SecurityException。未授权时应用会优雅降级（不崩，仅跳过亮度处理）。
+    -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- 常亮期间需要前台服务维持 WakeLock：先要能发通知 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.MyApplication"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 下拉快捷设置磁贴：点击切换「永不熄屏」 -->
+        <service
+            android:name=".KeepScreenOnTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_tile_keep_screen_on"
+            android:label="@string/tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
+        <!-- 常亮期间的前台服务：防止进程被冻结/回收导致 WakeLock 失效 -->
+        <service
+            android:name=".ScreenOnService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="保持屏幕常亮，用户通过快捷设置磁贴主动开启" />
+        </service>
+    </application>
+
+</manifest>

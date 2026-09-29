@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 应用图标前景：常亮的屏幕 + 灯泡。
+     自适应图标安全区为 108x108 viewport 中约 18..90 的方形，
+     图形全部画在该范围内，避免被系统裁成圆形/圆角时切掉。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 屏幕外框 -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M37,34 H71 A5,5 0 0 1 76,39 V69 A5,5 0 0 1 71,74 H37 A5,5 0 0 1 32,69 V39 A5,5 0 0 1 37,34 Z"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3.2" />
+
+    <!-- 灯泡发光体 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,39 C57.72,39 61.03,41.04 62.78,44.08 C64.53,47.11 64.53,50.89 62.78,53.92 C61.67,55.86 60,57.4 58.5,59.5 L49.5,59.5 C48,57.4 46.33,55.86 45.22,53.92 C43.47,50.89 43.47,47.11 45.22,44.08 C46.97,41.04 50.28,39 54,39 Z" />
+
+    <!-- 灯泡螺纹底座：第一段与灯颈同宽，避免出现缺口 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M49.5,59 H58.5 V63 H49.5 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M50.5,64.4 H57.5 V66.4 H50.5 Z" />
+</vector>

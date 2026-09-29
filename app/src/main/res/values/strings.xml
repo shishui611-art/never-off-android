@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">永不熄屏</string>
+
+    <!-- 磁贴 -->
+    <string name="tile_label">永不熄屏</string>
+    <string name="tile_subtitle_on">常亮锁已开启</string>
+    <string name="tile_subtitle_off">正常息屏</string>
+
+    <!-- 提示 -->
+    <string name="toast_keep_on">常亮锁已开启</string>
+    <string name="toast_keep_on_failed">开启失败：未能获得屏幕常亮锁</string>
+    <string name="toast_keep_off">已恢复正常息屏</string>
+    <string name="toast_add_tile_ok">磁贴已添加到快捷设置</string>
+    <string name="toast_add_tile_manual">请下拉通知栏，点编辑按钮，把「永不熄屏」拖到常用区域</string>
+
+    <!-- 常亮通知 -->
+    <string name="notif_channel_name">屏幕常亮</string>
+    <string name="notif_channel_desc">屏幕常亮期间显示的状态通知</string>
+    <string name="notif_title">常亮锁运行中</string>
+    <string name="notif_text">点按可返回应用，或点「关闭」结束</string>
+    <string name="notif_stop">关闭</string>
+
+    <!-- 主界面 -->
+    <string name="status_keep_on">当前：常亮锁已开启</string>
+    <string name="status_normal">当前：正常息屏</string>
+    <string name="status_current_timeout">系统息屏时间：%1$s</string>
+    <string name="status_brightness_locked">自动亮度：已关闭</string>
+    <string name="status_brightness_not_locked">自动亮度：仍开启</string>
+    <string name="switch_label">屏幕不自动熄灭</string>
+    <string name="brightness_permission_title">关闭自动亮度需要授权</string>
+    <string name="brightness_permission_body">如需开启常亮时一并关闭自动亮度，请授予「修改系统设置」权限。关闭常亮后，应用不会再次打开自动亮度。</string>
+    <string name="action_grant">去开启权限</string>
+    <string name="action_add_tile">添加到快捷设置</string>
+    <string name="howto_title">使用方法</string>
+    <string name="howto_body">1. 下拉通知栏，点编辑按钮，把「永不熄屏」磁贴拖到常用区域。\n2. 点一下磁贴开启常亮锁，再点一下恢复正常息屏。\n3. 开启期间若看到常亮通知，可点其中的「关闭」结束。\n\n开启时若有权限，应用会关闭自动亮度；关闭常亮后不会重新打开自动亮度。个别手机系统可能忽略后台的常亮锁，需在本机实测。</string>
+</resources>

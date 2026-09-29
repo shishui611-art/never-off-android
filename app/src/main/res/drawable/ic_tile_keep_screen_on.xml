@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 磁贴图标：屏幕 + 常亮标识。
+     不写 android:tint，交给系统按磁贴状态（点亮/置灰）自动着色，
+     否则在浅色主题或磁贴未激活时会与背景同色而看不见。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M3,5h18c0.55,0 1,0.45 1,1v10c0,0.55 -0.45,1 -1,1H14v2h3.5v1.5h-11V19H10v-2H3c-0.55,0 -1,-0.45 -1,-1V6c0,-0.55 0.45,-1 1,-1zM4,7v8h16V7H4z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M8.2,9.6h1.7l1.1,1.9 1.1,-1.9h1.7l-1.95,3.1 2,3.3h-1.75l-1.1,-1.95 -1.1,1.95H8.15l2,-3.3z" />
+</vector>
